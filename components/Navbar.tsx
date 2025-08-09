@@ -98,8 +98,8 @@ const Navbar = () => {
   // };
 
   return (
-    <header>
-      <nav className='fixed w-screen flex justify-between items-center text-[var(--foreground)] mix-blend-difference z-50 px-4 py-3 lg:px-8 lg:py-6'>
+    <header className='flex justify-center'>
+      <nav className='fixed max-w-[1440px] w-full flex justify-between items-center text-[var(--foreground)] mix-blend-difference z-50 px-4 py-3 lg:px-8 lg:py-6'>
         {/* <div className='text-center text-lg font-[Canopee] lg:text-2xl'>
           <p>Adok</p>
         </div> */}
@@ -120,7 +120,7 @@ const Navbar = () => {
       </nav>
 
       <div ref={overlay} className={'fixed top-0 left-0 w-screen h-screen flex bg-[var(--background)] z-10 [clip-path:polygon(0_0,100%_0,100%_0,0_0)]'}>
-        <div className='w-screen h-screen flex gap-3 lg:gap-4 flex-col justify-center items-start px-4 lg:px-8'>
+        <div className='fixed top-0 left-0 w-full h-screen flex gap-3 lg:gap-4 flex-col justify-center items-start px-4 lg:px-8'>
             {navigation.map((item) => (
               <Link 
               key={item.name}

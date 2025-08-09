@@ -20,6 +20,22 @@
   }
 }
 
+@media (min-width: 640px) {
+  .cta {
+    display: none;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cta-web {
+    display: none;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -34,7 +50,7 @@ section {
 
 .footer-padding {
   padding-top: 3vw;
-  padding-bottom: 5vw;
+  padding-bottom: 3vh;
   padding-right: 2.734vw;
   padding-left: 2.734vw;
 }
