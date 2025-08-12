@@ -27,10 +27,10 @@ const Navbar = () => {
   // const hoverText = document.querySelector(".hover-text");
 
   const navigation = [
-    { name: 'Core', href: '#' },
-    { name: 'Motivational', href: '#' },
-    { name: 'Peace', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Videos', href: '/core' },
+    { name: 'Quotes', href: '#' },
+    { name: 'Resources', href: '#' },
+    { name: 'Contact', href: '#contact' },
   ];
   
   const navsocial = [

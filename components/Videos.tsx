@@ -1,13 +1,9 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
+import LazyTikTokEmbed from './LazyLoad';
+import videos from '@/data/videos.json';
+import Link from 'next/link';
 
 export default function Videos() {
-  const navsocial = [
-    { name: 'Hopecore', href: 'https://www.tiktok.com/@issography/video/7493199017757936942?is_from_webapp=1&sender_device=pc&web_id=7466880244239762949' },
-    { name: 'Motivational', href: 'https://www.tiktok.com/@just4motivation1/video/7445623525458611478?is_from_webapp=1&sender_device=pc&web_id=7466880244239762949' },
-    { name: 'Peace', href: 'https://www.tiktok.com/@jaxfilms_/video/7524217579137797431?is_from_webapp=1&sender_device=pc&web_id=7466880244239762949' },
-  ];
-
   return (
     <section className="w-full">
       <div className="w-full mt-14 flex items-center justify-center">
@@ -21,21 +17,24 @@ export default function Videos() {
               <p className="text-sm md:text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum</p>
             </div>
             <div className='cta-web'>
-              <button className="bg-transparent hover:bg-[var(--foreground)] hover:text-[var(--background)] text-[var(--foreground)] font-semibold text-xs md:text-base leading-tight py-1.5 px-2 border border-[var(--foreground)] hover:border-transparent rounded-4xl mt-5">See more</button>
+              <Link href="/core">
+                <button className="bg-transparent hover:bg-[var(--foreground)] hover:text-[var(--background)] text-[var(--foreground)] font-semibold text-xs md:text-base leading-tight py-1.5 px-2 border border-[var(--foreground)] hover:border-transparent rounded-4xl mt-5">See more</button>
+              </Link>
             </div>
           </div>
           <div className="mt-8 w-full">
-            <div className="flex flex-col items-center gap-6 video-grid lg:grid lg:grid-cols-3!">
-              {navsocial.map((sosal) => (
-                <div key={sosal.name} className="flex flex-col w-[100%] h-[600px]">
-                  <ReactPlayer src={sosal.href} controls width="100%" height="100%"/>
-                  <p className='pt-2'>{sosal.name}</p>
+            <div className="flex flex-col items-center md:flex-wrap md:justify-between md:flex-row">
+              {videos.slice(0, 6).map((sosal) => (
+                <div key={sosal.id} className="flex flex-col">
+                  <LazyTikTokEmbed url={sosal.tiktokUrl} />
                 </div>
               ))}
             </div>
           </div>
           <div className='cta'>
-            <button className="bg-transparent hover:bg-[var(--foreground)] hover:text-[var(--background)] text-[var(--foreground)] font-semibold text-xs md:text-base leading-tight py-1.5 px-2 border border-[var(--foreground)] hover:border-transparent rounded-4xl mt-5">See more</button>
+            <Link href="/core">
+              <button type="button" className="bg-transparent hover:bg-[var(--foreground)] hover:text-[var(--background)] text-[var(--foreground)] font-semibold text-xs md:text-base leading-tight py-1.5 px-2 border border-[var(--foreground)] hover:border-transparent rounded-4xl mt-5">See more</button>
+            </Link>
           </div>
         </div>
       </div>

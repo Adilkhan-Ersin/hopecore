@@ -12,9 +12,9 @@ library.add(fab);
 export default function Footer() {
 
   const menu = [
-    { name: 'Core', href: '#' },
-    { name: 'Motivational', href: '#' },
-    { name: 'Peace', href: '#' },
+    { name: 'Videos', href: '/core' },
+    { name: 'Quotes', href: '#' },
+    { name: 'Resources', href: '#' },
     { name: 'Contact', href: '#contact' },
   ]
 
