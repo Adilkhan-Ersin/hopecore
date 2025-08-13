@@ -14,7 +14,7 @@ export default function Footer() {
   const menu = [
     { name: 'Videos', href: '/core' },
     { name: 'Quotes', href: '#' },
-    { name: 'Resources', href: '#' },
+    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '#contact' },
   ]
 

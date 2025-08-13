@@ -16,6 +16,8 @@ export default function AdminPage() {
   const [category, setCategory] = useState('hopecore');
   const [generatedJson, setGeneratedJson] = useState('');
 
+  const [copyText, setCopyText] = useState('Copy All');
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
@@ -39,6 +41,21 @@ export default function AdminPage() {
     // Pretty-print the JSON with an indentation of 2 spaces
     const jsonString = JSON.stringify(newVideo, null, 2);
     setGeneratedJson(jsonString);
+    setCopyText('Copy All');
+  };
+
+  const handleCopy = () => {
+    if (!generatedJson) return;
+    // We include the trailing comma for convenience
+    const textToCopy = `${generatedJson},`;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      // Provide user feedback on successful copy
+      setCopyText('Copied! ✅');
+      setTimeout(() => setCopyText('Copy All'), 2000); // Reset after 2 seconds
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+      setCopyText('Failed to Copy');
+    });
   };
 
   if (!isAuthenticated) {
@@ -99,10 +116,17 @@ export default function AdminPage() {
 
         {generatedJson && (
           <div className="mt-8">
-            <h2 className="text-xl font-semibold">Copy this into `videos.json`:</h2>
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="text-xl font-semibold">Copy this into `videos.json`:</h2>
+              <button
+                onClick={handleCopy}
+                className="px-4 py-1.5 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all">
+                {copyText}
+              </button>
+            </div>
             <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto">
               <code>
-                {generatedJson},
+                ${generatedJson},
               </code>
             </pre>
           </div>

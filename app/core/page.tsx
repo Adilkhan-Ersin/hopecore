@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 
 const categories = ['all', 'hopecore', 'motivational', 'peace'];
 
-export default function HomePage() {
+export default function Videos() {
   const [filter, setFilter] = useState('all');
 
   const filteredVideos = videos.filter(video => 
