@@ -14,7 +14,6 @@ export default function Footer() {
   const menu = [
     { name: 'Videos', href: '/core' },
     { name: 'Quotes', href: '#' },
-    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -32,7 +31,6 @@ export default function Footer() {
   const legals = [
     { name: 'Privacy Policy', href: '#' },
     { name: 'Terms & Conditions', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
   ]
 
   return (
